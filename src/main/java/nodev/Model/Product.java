@@ -3,10 +3,10 @@ package nodev.Model;
 public class Product {
     private int id;
     private String name;
-    private float price;
+    private double price;
     private int inStock;
 
-    public Product(int id, String name, float price, int inStock) {
+    public Product(int id, String name, double price, int inStock) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -29,11 +29,11 @@ public class Product {
         this.name = name;
     }
 
-    public float getPrice() {
+    public double getPrice() {
         return this.price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 

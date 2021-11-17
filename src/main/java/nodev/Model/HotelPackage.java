@@ -4,9 +4,9 @@ public class HotelPackage {
     private int id;
     private String name;
     private String description;
-    private float price;
+    private double price;
 
-    public HotelPackage(int id, String name, String description, float price) {
+    public HotelPackage(int id, String name, String description, double price) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -37,11 +37,11 @@ public class HotelPackage {
         this.description = description;
     }
 
-    public float getPrice() {
+    public double getPrice() {
         return this.price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 }

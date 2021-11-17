@@ -7,13 +7,11 @@ public class Request {
     private int id;
     private List<Item> itens;
     private Date date;
-    private float total;
 
-    public Request(int id, List<Item> itens, Date date, float total) {
+    public Request(int id, List<Item> itens, Date date) {
         this.id = id;
         this.itens = itens;
         this.date = date;
-        this.total = total;
     }
 
     public int getId() {
@@ -32,6 +30,10 @@ public class Request {
         this.itens = itens;
     }
 
+    public void addItens(Item item){
+        this.itens.add(item);
+    }
+
     public Date getDate() {
         return this.date;
     }
@@ -41,10 +43,10 @@ public class Request {
     }
 
     public float getTotal() {
-        return this.total;
-    }
-
-    public void setTotal(float total) {
-        this.total = total;
+        float total = 0;
+        for (Item item : itens) {
+            total += item.getQuantity() * item.getProduct().getPrice();
+        }
+        return total;
     }
 }

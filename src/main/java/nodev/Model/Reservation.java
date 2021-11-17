@@ -10,16 +10,13 @@ public class Reservation {
     private Date departureDate;
     private HotelPackage hotelPackage;
     private List<Request> requests;
-    private float totalPrice;
 
-    public Reservation(int id, int roomNumber, Date entryDate, Date departureDate, HotelPackage hotelPackage, List<Request> requests, float totalPrice) {
+    public Reservation(int id, int roomNumber, Date entryDate, Date departureDate, HotelPackage hotelPackage) {
         this.id = id;
         this.roomNumber = roomNumber;
         this.entryDate = entryDate;
         this.departureDate = departureDate;
         this.hotelPackage = hotelPackage;
-        this.requests = requests;
-        this.totalPrice = totalPrice;
     }
 
     public int getId() {
@@ -69,12 +66,18 @@ public class Reservation {
     public void setRequests(List<Request> requests) {
         this.requests = requests;
     }
-
-    public float getTotalPrice() {
-        return this.totalPrice;
+    
+    public void addRequests(Request request){
+        this.requests.add(request);
     }
 
-    public void setTotalPrice(float totalPrice) {
-        this.totalPrice = totalPrice;
-    }    
+    public float getTotal() {
+        float total = 0;
+        for (Request request : requests) {
+            total += request.getTotal();
+        }
+        total += hotelPackage.getPrice();
+        return total;
+    }
+   
 }
