@@ -6,11 +6,10 @@ public class Hotel {
     private List<Product> products;
     private List<Room> rooms;
     private List<HotelPackage> packages;
+    private List<Guest> guests;
+    private List<Reservation> reservations;
 
-    public Hotel(List<Product> products, List<Room> rooms, List<HotelPackage> packages) {
-        this.products = products;
-        this.rooms = rooms;
-        this.packages = packages;
+    public Hotel() {
     }
 
     public List<Product> getProducts() {
@@ -36,4 +35,21 @@ public class Hotel {
     public void setPackages(List<HotelPackage> packages) {
         this.packages = packages;
     }
+
+    public List<Guest> getGuests() {
+        return this.guests;
+    }
+
+    public void setGuests(List<Guest> guests) {
+        this.guests = guests;
+    }
+
+    public List<Reservation> getReservations() {
+        return this.reservations;
+    }
+
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
+    }
+
 }
