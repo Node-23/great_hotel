@@ -24,4 +24,8 @@ public class Item {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+
+    public double getTotal(){
+        return product.getPrice()*quantity;
+    }
 }

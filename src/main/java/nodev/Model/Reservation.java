@@ -11,6 +11,7 @@ public class Reservation {
     private Date departureDate;
     private HotelPackage hotelPackage;
     private List<Request> requests;
+    private boolean closed;
 
     public Reservation(int id, Guest guest, Room room, Date entryDate, Date departureDate, HotelPackage hotelPackage) {
         this.id = id;
@@ -77,4 +78,32 @@ public class Reservation {
         this.requests = requests;
     }
 
+    public boolean isClosed() {
+        return this.closed;
+    }
+
+    public void setClosed(boolean closed) {
+        this.closed = closed;
+    }
+
+    public float getTotal(){
+        float total = 0.0f;
+        for (Request request : requests) {
+            total += request.getTotal();
+        }
+        return total;
+    }
+
+    public String getClosedInfo(){
+        int count = 1;    
+        String info = "- Reservation bill -\n";
+        for (Request request : requests) {
+            for (Item item : request.getItens()) {
+                info += count + "- " + item.getQuantity() + "X " + item.getProduct().getName() + ": " + item.getTotal() + "\n";
+                count++;
+            }
+        }
+        info += "Total: " + getTotal();
+        return info;
+    }
 }
