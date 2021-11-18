@@ -30,7 +30,7 @@ public class ModelTests {
     Date entryDate = new Date();
     Date departureDate = new Date(new Date().getTime() + (2 * 86400000));
     Room room = new Room(105, false);
-    Reservation reservation = new Reservation(1, room, entryDate, departureDate, hotelPackage);
+    Reservation reservation = new Reservation(1, guest, room, entryDate, departureDate, hotelPackage);
 
     @Test
     public void createGuest() {

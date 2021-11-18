@@ -5,14 +5,16 @@ import java.util.List;
 
 public class Reservation {
     private int id;
+    private Guest guest;
     private Room room;
     private Date entryDate;
     private Date departureDate;
     private HotelPackage hotelPackage;
     private List<Request> requests;
 
-    public Reservation(int id, Room room, Date entryDate, Date departureDate, HotelPackage hotelPackage) {
+    public Reservation(int id, Guest guest, Room room, Date entryDate, Date departureDate, HotelPackage hotelPackage) {
         this.id = id;
+        this.guest = guest;
         this.room = room;
         this.entryDate = entryDate;
         this.departureDate = departureDate;
@@ -25,6 +27,14 @@ public class Reservation {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public Guest getGuest() {
+        return this.guest;
+    }
+
+    public void setGuest(Guest guest) {
+        this.guest = guest;
     }
 
     public Room getRoom() {
@@ -66,13 +76,5 @@ public class Reservation {
     public void setRequests(List<Request> requests) {
         this.requests = requests;
     }
-    
-    public float getTotal() {
-        float total = 0;
-        for (Request request : requests) {
-            total += request.getTotal();
-        }
-        total += hotelPackage.getPrice();
-        return total;
-    }
+
 }
